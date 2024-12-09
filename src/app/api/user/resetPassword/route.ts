@@ -10,9 +10,6 @@ export async function POST(request: NextRequest) {
     const reqBody = await request.json();
     const { password, token } = reqBody;
 
-    console.log(password);
-    console.log("URL token is:=", token);
-
     const user = await User.findOne({
       forgotPasswordToken: token,
       forgotPasswordTokenExpiry: { $gt: Date.now() },
@@ -27,8 +24,6 @@ export async function POST(request: NextRequest) {
     const salt = await bcryptjs.genSalt(10);
     const hashedPassword = await bcryptjs.hash(password, salt);
     console.log(hashedPassword);
-
-    user.password = hashedPassword;
 
     user.forgotPasswordToken = undefined;
     user.forgotPasswordTokenExpiry = undefined;

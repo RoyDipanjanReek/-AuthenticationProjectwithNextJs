@@ -34,7 +34,7 @@ export default function confirmPassword() {
     <div className="flex flex-col items-center justify-center min-h-screen py-2 w-full bg-black">
       <div className="bg-white rounded-md">
         <h1 className="text-4xl text-center py-6">Reset Your Password</h1>
-        <hr className="mb-4"/>
+        <hr className="mb-4" />
 
         <label className="pl-8" htmlFor="password">
           New Password
