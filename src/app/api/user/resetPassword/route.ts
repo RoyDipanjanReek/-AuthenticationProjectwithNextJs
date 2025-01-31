@@ -15,7 +15,7 @@ export async function POST(request: NextRequest) {
       forgotPasswordTokenExpiry: { $gt: Date.now() },
     });
 
-    console.log(user.username);
+    // console.log(user.username);
 
     if (!user) {
       return NextResponse.json({ error: "Invalid token" }, { status: 400 });
